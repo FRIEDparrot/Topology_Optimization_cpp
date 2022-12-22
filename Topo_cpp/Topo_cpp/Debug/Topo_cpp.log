@@ -1,2 +1,2 @@
 ﻿  Topo_cpp.cpp
-  Topo_cpp.vcxproj -> C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Debug\Topo_cpp.exe
+C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(32,24): error C2061: syntax error: identifier 'value'

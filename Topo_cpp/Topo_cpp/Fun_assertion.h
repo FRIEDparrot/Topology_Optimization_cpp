@@ -1,12 +1,14 @@
-#ifndef FEM
-#define FEM
+#ifndef FUN_ASSERTION
+#define FUN_ASSERTION
 #include <iostream>
 #include <string.h>
+#include <assert.h>    // this package is used for raise error
 
 #define PI 3.1415
 
 using namespace std;
 
+// The definition of the class should be put here. 
 class DyMat {  // global parameters definition
 public:
 	DyMat(int xelm, int yelm) {
@@ -27,8 +29,21 @@ public:
 			}
 		}
 	};
-	void Display() {
-		cout << "Haha";
+	void set(int i,int j, value) {
+		if (i >= xelm || j >= yelm || i<0 || j < 0) {
+			throw std::runtime_error("the index out of boundary");
+		}
+		else {
+			
+		}
+	}
+	void Display_Content(){
+		for (int i = 1; i < xelm; i++) {
+			for (int j = 1; j < yelm; j++) {
+				cout << *(*(this->Mat + i) + j) << " ";
+			}
+			cout << "\n";
+		}
 	};
 private:
 	int xelm;

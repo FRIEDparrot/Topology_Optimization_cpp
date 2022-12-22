@@ -6,7 +6,7 @@
 int main()
 {
     DyMat D(20,20);
-
+    D.Display_Content();
     // we had "using namespace std" in the head file
     return 0;
 }
