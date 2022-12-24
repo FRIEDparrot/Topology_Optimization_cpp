@@ -139,10 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dymatrix_functions.cpp" />
+    <ClCompile Include="Result_plot.cpp" />
     <ClCompile Include="Topo_cpp.cpp" />
+    <ClCompile Include="Topo_functions.cpp" />
+    <ClCompile Include="Tutorial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fun_assertion.h" />
+    <ClInclude Include="Plot_Functions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
