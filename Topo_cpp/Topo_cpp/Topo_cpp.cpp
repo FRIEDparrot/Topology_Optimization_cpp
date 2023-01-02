@@ -10,10 +10,10 @@
 int main()
 {
 #pragma region  Parameter Definition
-    double max_iteration = 1;
+    double max_iteration = 150;
     double cut_error = 0.01;
-    int elmx = 10;
-    int elmy = 3;
+    int elmx = 15;   // nelx
+    int elmy = 3;    // nely 
     double volfrac = 0.4;
     double E = 1.;
     double nu = 0.3;
@@ -26,31 +26,32 @@ int main()
     /// </summary>
 #pragma endregion
 
-    DyMat<double> Ke = Elm_Stiff_Generate(E, nu);     // we firstly initialize the stiffness matrix
-    // initialize the denisity matrix
-    DyMat<double> x(elmy, elmx, volfrac);
+    DyMat<double> Ke = Elm_Stiff_Generate(E, nu);  // we firstly initialize the stiffness matrix
+    DyMat<double> x(elmy, elmx, volfrac); // initialize denisity matrix
+
     // the optimization  object is to minimize c(  c = U^T K_e U )
     int iteration = 0;
-    double Error = 1.;
+    double c1 = 1.,c2 = 0.;
 
-    while ( Error > cut_error && iteration < max_iteration) {
+    while (abs(c1 - c2) > cut_error && iteration < max_iteration) {
         iteration += 1;
+        double c = 0; // I set the breakpoint here
+        DyMat<double> dc(elmy, elmx, 0.);  // Initialize the dc  matrix
         FEM_parameters FEM_Data = FEMInit(elmx, elmy);   // Init the K, F and U
         FEMupdate(FEM_Data, Ke, x, elmx, elmy, p);
-        cout << "run successfully" << endl;
-        double c = 0; // I set the breakpoint here
-
-
-        // DyMat<double> dc(elmy, elmx, 0.);
-        // dc = ChangeUpdate(FEM_Data.U(), Ke, x, &c, dc, p, rmin);
-
-        // DyMat<double> dc_new = Grid_filter(x, dc, rmin);
-
-        // x = Optimization_Criterion(x, dc, volfrac);
+        dc = ChangeUpdate(FEM_Data.U(), Ke, x, &c, dc, p, rmin);   // there the c may be changed during the running
+        DyMat<double> dc_new = Grid_filter(x, dc, rmin);
+        
+        c1 = DyMat_max(x);
+        x = Optimization_Criterion(x, dc_new, volfrac);
+        c2 = DyMat_max(x);
+        cout << "iteration:" << iteration << ", Change:" << abs(c1-c2) << endl;
         // logs : FEMupdate will crush when the lines reach 125; ---> where ely = 30; ---> fix( < nely)
         // DyMat<double> dc( elmx, elmy , (double)0);   // every time we recalculate the dymap dc
     }
-
+    
+    PlotResult(x);
+    char b = _getch();
     // DyMat<double> Test1(3, 3, (double*) new double[3][3]{ {2,2,3},{1,-1, 0},{-1,2,1 } });
     // DyMat<double> Test2(3, 1, (double*) new double[3][1]{ {7},{-1},{4} });
     // DyMatMul(DyMat_Inv(Test1), Test2).Display_Content();

@@ -6,15 +6,4 @@ C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_
 C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Topo_cpp.cpp(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Topo_cpp.cpp(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Topo_functions.cpp
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Topo_functions.cpp(97,20): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(162,25): warning C4101: 'e': unreferenced local variable
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(149): message : while compiling class template member function 'DyMat<double> DyMat<double>::getChunk(const int [],const int [],const int,const int)'
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Topo_functions.cpp(15): message : see reference to function template instantiation 'DyMat<double> DyMat<double>::getChunk(const int [],const int [],const int,const int)' being compiled
-C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Topo_cpp\Fun_assertion.h(247): message : see reference to class template instantiation 'DyMat<double>' being compiled
-  Generating Code...
   Topo_cpp.vcxproj -> C:\Users\Parrot\Desktop\GitHub_Repository\Topology_by_Cpp\Topo_cpp\Debug\Topo_cpp.exe

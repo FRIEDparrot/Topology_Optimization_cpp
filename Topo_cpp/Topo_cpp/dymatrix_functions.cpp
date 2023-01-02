@@ -42,7 +42,8 @@ DyMat<double> DyMat_Inv(DyMat<double> A)
 	// firstly we have to judge if we can derive the inverse of the matrix
 	for (int i = 0; i < n-1; i++) {  // the first line (original line)
 		for (int j = n - 1; j > i; j--) {  // the second line (line need to change)
-			if (abs(W.get(i, i)) < 0.00001) {
+			if (abs(W.get(i, i)) < 0.0000001) {
+				cout << W.get(i, i) << endl;
 				throw "this matrix have no Inverse matrix!";
 			}
 			else {
@@ -186,6 +187,17 @@ DyMat<double> DyMat_transpose(DyMat<double> A) {
 	return C;
 }
 
+DyMat<double> DyMat_fliplrtb(DyMat<double> A) {
+	DyMat<double> C(A.xelm, A.yelm, 0.);
+	int x = A.xelm; int y = A.yelm;
+	for (int i = 0; i < A.xelm; i++) {
+		for (int j = 0; j < A.yelm; j++) {
+			C.set(i, j, A.get(x - i - 1, y - j - 1));
+		}
+	}
+	return C;
+}
+
 double DyMat_sum(DyMat<double> A) {
 	double _sum=0;
 	for (int i = 0; i < A.xelm; i++) {
@@ -194,4 +206,16 @@ double DyMat_sum(DyMat<double> A) {
 		}
 	}
 	return _sum;
+}
+
+double DyMat_max(DyMat<double> A) {
+	double _max = A.get(1,1);
+	for (int i = 0; i < A.xelm; i++) {
+		for (int j = 0; j < A.yelm; j++) {
+			if (_max < A.get(i, j)) {
+				_max = A.get(i, j);
+			}
+		}
+	}
+	return _max;
 }

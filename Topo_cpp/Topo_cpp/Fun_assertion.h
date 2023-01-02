@@ -200,6 +200,7 @@ DyMat<double> Elm_Stiff_Generate(double E, double nu);
 /// this can store all the data needed in a class,
 /// which is convenient for the exchange of data between different functions
 #pragma region ParameterTypes
+
 class FEM_parameters {
 public:
 	FEM_parameters(DyMat<double> k, DyMat<double> f, DyMat<double> u, DyArray<int> alldofs){
@@ -265,7 +266,9 @@ DyMat<double> DyMat_dotDiv(DyMat<double> A, double b);
 DyMat<double> DyMat_dotDiv(DyMat<double> A, DyMat<double> B);
 DyMat<double> DyMat_dotPow(DyMat<double> A, double b);
 DyMat<double> DyMat_transpose(DyMat<double> A);
+DyMat<double> DyMat_fliplrtb(DyMat<double> A);
 double DyMat_sum(DyMat<double> A);
+double DyMat_max(DyMat<double> A);
 
 void FEMupdate(FEM_parameters Data, DyMat<double> Ke, DyMat<double> x, int nelx, int nely, double penal);
 DyMat<double> ChangeUpdate(DyMat<double> U, DyMat<double> Ke, DyMat<double> x, double* c, DyMat<double> dc, double penal, double rmin);

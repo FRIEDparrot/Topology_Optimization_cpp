@@ -2,8 +2,5 @@
 #ifndef PLOT_FUNCTIONS
 #define PLOT_FUNCTIONS
 
-void PlotResult();
-
-
-
+void PlotResult(DyMat<double> x);
 #endif 
